@@ -1,0 +1,11 @@
+[user]
+	email = lllluuukke@gmail.com
+	name = lukspdev
+[credential]
+	helper = store
+[alias]
+	co = checkout
+	ci = commit
+	br = branch
+	s = status
+	lg = log --graph --oneline --decorate --all
