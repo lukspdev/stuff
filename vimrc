@@ -101,18 +101,18 @@ nnoremap <C-y> 3<C-y>
 " For Makefiles
 autocmd FileType make setlocal noexpandtab
 
-autocmd FileType python,c,cpp,java,ocaml inoremap = <space>=<space>
-autocmd FileType python,c,cpp,java,ocaml inoremap == <space>==<space>
-autocmd FileType python,c,cpp,java,ocaml inoremap != <space>!=<space>
-autocmd FileType python,c,cpp,java,ocaml inoremap += <space>+=<space>
-autocmd FileType python,c,cpp,java,ocaml inoremap -= <space>-=<space>
-autocmd FileType python,c,cpp,java,ocaml inoremap *= <space>*=<space>
-autocmd FileType python,c,cpp,java,ocaml inoremap /= <space>/=<space>
-autocmd FileType python,c,cpp,java,ocaml inoremap &= <space>&=<space>
-autocmd FileType python,c,cpp,java,ocaml inoremap <= <space><=<space>
-autocmd FileType python,c,cpp,java,ocaml inoremap >= <space>>=<space>
-autocmd FileType python,c,cpp,java,ocaml inoremap << <space><<<space>
-autocmd FileType python,c,cpp,java,ocaml inoremap >> <space>>><space>
+autocmd FileType python,c,cpp,java,ocaml,cuda inoremap = <space>=<space>
+autocmd FileType python,c,cpp,java,ocaml,cuda inoremap == <space>==<space>
+autocmd FileType python,c,cpp,java,ocaml,cuda inoremap != <space>!=<space>
+autocmd FileType python,c,cpp,java,ocaml,cuda inoremap += <space>+=<space>
+autocmd FileType python,c,cpp,java,ocaml,cuda inoremap -= <space>-=<space>
+autocmd FileType python,c,cpp,java,ocaml,cuda inoremap *= <space>*=<space>
+autocmd FileType python,c,cpp,java,ocaml,cuda inoremap /= <space>/=<space>
+autocmd FileType python,c,cpp,java,ocaml,cuda inoremap &= <space>&=<space>
+autocmd FileType python,c,cpp,java,ocaml,cuda inoremap <= <space><=<space>
+autocmd FileType python,c,cpp,java,ocaml,cuda inoremap >= <space>>=<space>
+autocmd FileType python,c,cpp,java,ocaml,cuda inoremap << <space><<<space>
+autocmd FileType python,c,cpp,java,ocaml,cuda inoremap >> <space>>><space>
 autocmd FileType python inoremap ** <space>**<space>
 
 " For LaTeX
@@ -121,11 +121,11 @@ autocmd FileType tex setlocal spell spelllang=en_us
 
 " 80 column layout:
 if exists('+colorcolumn')
-    autocmd FileType python,c,cpp,java,javascript,ocaml let &colorcolumn=join(range(81,999),",")
-    autocmd FileType python,c,cpp,java,javascript,ocaml highlight ColorColumn ctermbg=235
+    autocmd FileType python,c,cpp,java,javascript,ocaml,cuda let &colorcolumn=join(range(81,999),",")
+    autocmd FileType python,c,cpp,java,javascript,ocaml,cuda highlight ColorColumn ctermbg=235
 else
-    autocmd FileType python,c,cpp,java,javascript,ocaml highlight OverLength ctermbg=235 ctermfg=white
-    autocmd FileType python,c,cpp,java,javascript,ocaml match OverLength /\%81v.\+/
+    autocmd FileType python,c,cpp,java,javascript,ocaml,cuda highlight OverLength ctermbg=235 ctermfg=white
+    autocmd FileType python,c,cpp,java,javascript,ocaml,cuda match OverLength /\%81v.\+/
 endif
 
 " Learn Vimscript the hard way
@@ -139,7 +139,7 @@ se tags=/usr/include/tags
 
 filetype plugin on
 set ofu=syntaxcomplete#Complete
-autocmd FileType python,c,cpp,java,javascript set omnifunc=pythoncomplete#Complete
+autocmd FileType python,c,cpp,java,javascript,cuda set omnifunc=pythoncomplete#Complete
 autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
 
 set foldmethod=indent
@@ -216,6 +216,8 @@ let g:AutoPairs={'(':')', '[':']', '{':'}', '"':'"', "'":"'"}
 au FileType tex let b:AutoPairs={'(':')', '[':']', '{':'}', '"':'"', "'":"'", '\[':'\]', '\(':'\)'}
 au FileType ocaml let b:AutoPairs={'(':')', '[':']', '{':'}', '"':'"', "'":"'", '(*':'*)'}
 au FileType python let b:AutoPairs={'(':')', '[':']', '{':'}', '"':'"', "'":"'", '"""':'"""', "'''":"'''"}
+au FileType jinja.html let b:AutoPairs={'(':')', '[':']', '{':'}', '"':'"', "'":"'", '{{':'}}', '{%':'%}'}
+au FileType cuda let b:AutoPairs={'(':')', '[':']', '{':'}', '"':'"', "'":"'", '<<<':'>>>'}
 
 " For vim-indent-guides
 let g:indent_guides_enable_on_vim_startup=1
