@@ -139,8 +139,11 @@ se tags=/usr/include/tags
 
 filetype plugin on
 set ofu=syntaxcomplete#Complete
-autocmd FileType python,c,cpp,java,javascript,cuda set omnifunc=pythoncomplete#Complete
 autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
+autocmd FileType java set omnifunc=javacomplete#Complete
+autocmd FileType python set omnifunc=pythoncomplete#Complete
+autocmd FileType c,cpp,cuda set omnifunc=syntaxcomplete#Complete
+autocmd FileType javascript set omnifunc=javascriptcomplete#Complete
 
 set foldmethod=indent
 
