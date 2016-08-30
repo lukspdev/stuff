@@ -37,9 +37,10 @@ ${voffset -5}${font sans-serif:bold:size=10}CALENDAR${font} ${hr 1}${voffset 5}
 ${font Ubuntu Mono:size = 6}${execpi 60 DJS=`date +%_d`; cal -m | sed '1d' | sed '/./!d' | sed 's/$/                    /' | fold -w 21 | sed -n '/^.\{21\}/p' | sed 's/^/ /' | sed /" $DJS "/s/" $DJS "/" "'${color FCAF3E}'"$DJS"'${color}'" "/}
 
 ${voffset -5}${font sans-serif:bold:size=10}WEATHER${font} ${hr 1}${voffset 5}
-#${execpi 3600 /home/luke/scripts/wu.py Illinois Urbana}
+${execpi 3600 /home/luke/scripts/wu.py Illinois Urbana}
+#${execpi 3600 /home/luke/scripts/wu.py Illinois Chicago}
 #${execpi 3600 /home/luke/scripts/wu.py Wisconsin Madison}
-${execpi 3600 /home/luke/scripts/wu.py "New York" "New York"}
+#${execpi 3600 /home/luke/scripts/wu.py "New York" "New York"}
 #${execpi 3600 /home/luke/scripts/wu.py Zhejiang Hangzhou}
 
 #${voffset -5}${font sans-serif:bold:size=10}PACMAN UPDATE${font} ${hr 1}${voffset 5}
