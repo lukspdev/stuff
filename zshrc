@@ -59,7 +59,7 @@ alias pacr="pacaur -Rns"  # '[r]emove'pacaur- uninstall one or more packages
 alias pacs="pacaur -Ss"        # '[s]earch'pacaur- search for a package using one or more keywords
 alias paci="pacaur -Si"        # '[i]nfo'pacaur- show information about a package
 alias paclo="pacaur -Qdt"      # '[l]ist [o]rphans'rphans- list all packages which are orphaned
-alias pacc='sudo paccache -rk2 && find /var/cache/pacman/pkg/ -size +60M -exec sh -c "echo Removing large files...; ls -lh --color=auto {}; sudo rm -f {}" \;'  # '[c]lean cache'cache- delete all not currently installed package files
+alias pacc='sudo paccache -rk2 && rm -rf ~/.cache/pacaur/* && find /var/cache/pacman/pkg/ -size +60M -exec sh -c "echo Removing large files...; ls -lh --color=auto {}; sudo rm -f {}" \;'  # '[c]lean cache'cache- delete all not currently installed package files
 alias paclf="pacaur -Ql"       # '[l]ist [f]iles'iles- list all files installed by a given package
 
 # For merging PDFs
