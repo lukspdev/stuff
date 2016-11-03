@@ -37,6 +37,7 @@ Plugin 'tpope/vim-characterize.git'
 Plugin 'coderifous/textobj-word-column.vim'
 Plugin 'lepture/vim-jinja'
 Plugin 'justinmk/vim-syntax-extra'
+Plugin 'Valloric/YouCompleteMe'
 
 call vundle#end()
 filetype plugin indent on
@@ -133,7 +134,6 @@ endif
 nnoremap - ddp
 nnoremap _ ddkP
 inoremap <c-u> <esc>gUwi
-nnoremap <c-u> gUw
 
 " Check function prototype
 se tags=/usr/include/tags
@@ -147,6 +147,7 @@ autocmd FileType c,cpp,cuda set omnifunc=syntaxcomplete#Complete
 autocmd FileType javascript set omnifunc=javascriptcomplete#Complete
 
 set foldmethod=indent
+set nofoldenable
 
 let g:pydiction_location='~/.vim/ftplugin/complete-dict'
 
