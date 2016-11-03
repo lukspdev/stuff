@@ -6,6 +6,7 @@ setopt appendhistory
 setopt sharehistory
 setopt extendedhistory
 setopt histignoredups
+setopt rm_star_silent
 unsetopt beep
 bindkey -v
 
@@ -59,7 +60,7 @@ alias pacr="pacaur -Rns"  # '[r]emove'pacaur- uninstall one or more packages
 alias pacs="pacaur -Ss"        # '[s]earch'pacaur- search for a package using one or more keywords
 alias paci="pacaur -Si"        # '[i]nfo'pacaur- show information about a package
 alias paclo="pacaur -Qdt"      # '[l]ist [o]rphans'rphans- list all packages which are orphaned
-alias pacc='sudo paccache -rk2 && rm -rf ~/.cache/pacaur/* && find /var/cache/pacman/pkg/ -size +60M -exec sh -c "echo Removing large files...; ls -lh --color=auto {}; sudo rm -f {}" \;'  # '[c]lean cache'cache- delete all not currently installed package files
+alias pacc='sudo paccache -rk2 && find /var/cache/pacman/pkg/ -size +60M -exec sh -c "echo Removing large files...; ls -lh --color=auto {}; sudo rm -f {}" \; && rm -rf ~/.cache/pacaur/*' # '[c]lean cache'cache- delete all not currently installed package files
 alias paclf="pacaur -Ql"       # '[l]ist [f]iles'iles- list all files installed by a given package
 
 # For merging PDFs
@@ -79,8 +80,16 @@ alias rename='perl-rename'
 # ssh gone wild
 alias rpi='ssh luke@rpi'
 alias rpj='ssh luke@rpj'
-alias grd1='ssh jianliu4@grd1'
-alias grd2='ssh jianliu4@grd2'
+alias grd0='ssh localadmin@grd0'
+alias grd1='ssh localadmin@grd1'
+alias grd2='ssh localadmin@grd2'
+alias grd3='ssh localadmin@grd3'
+alias grd4='ssh localadmin@grd4'
+alias grd5='ssh localadmin@grd5'
+alias grd6='ssh localadmin@grd6'
+alias grd7='ssh localadmin@grd7'
+alias grd8='ssh localadmin@grd8'
+alias grd9='ssh localadmin@grd9'
 
 alias tar='bsdtar'
 
