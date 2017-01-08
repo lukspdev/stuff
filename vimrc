@@ -103,18 +103,18 @@ nnoremap <C-y> 3<C-y>
 " For Makefiles
 autocmd FileType make setlocal noexpandtab
 
-autocmd FileType python,c,cpp,java,ocaml,cuda inoremap = <space>=<space>
-autocmd FileType python,c,cpp,java,ocaml,cuda inoremap == <space>==<space>
-autocmd FileType python,c,cpp,java,ocaml,cuda inoremap != <space>!=<space>
-autocmd FileType python,c,cpp,java,ocaml,cuda inoremap += <space>+=<space>
-autocmd FileType python,c,cpp,java,ocaml,cuda inoremap -= <space>-=<space>
-autocmd FileType python,c,cpp,java,ocaml,cuda inoremap *= <space>*=<space>
-autocmd FileType python,c,cpp,java,ocaml,cuda inoremap /= <space>/=<space>
-autocmd FileType python,c,cpp,java,ocaml,cuda inoremap &= <space>&=<space>
-autocmd FileType python,c,cpp,java,ocaml,cuda inoremap <= <space><=<space>
-autocmd FileType python,c,cpp,java,ocaml,cuda inoremap >= <space>>=<space>
-autocmd FileType python,c,cpp,java,ocaml,cuda inoremap << <space><<<space>
-autocmd FileType python,c,cpp,java,ocaml,cuda inoremap >> <space>>><space>
+autocmd FileType perl,python,c,cpp,java,ocaml,cuda inoremap = <space>=<space>
+autocmd FileType perl,python,c,cpp,java,ocaml,cuda inoremap == <space>==<space>
+autocmd FileType perl,python,c,cpp,java,ocaml,cuda inoremap != <space>!=<space>
+autocmd FileType perl,python,c,cpp,java,ocaml,cuda inoremap += <space>+=<space>
+autocmd FileType perl,python,c,cpp,java,ocaml,cuda inoremap -= <space>-=<space>
+autocmd FileType perl,python,c,cpp,java,ocaml,cuda inoremap *= <space>*=<space>
+autocmd FileType perl,python,c,cpp,java,ocaml,cuda inoremap /= <space>/=<space>
+autocmd FileType perl,python,c,cpp,java,ocaml,cuda inoremap &= <space>&=<space>
+autocmd FileType perl,python,c,cpp,java,ocaml,cuda inoremap <= <space><=<space>
+autocmd FileType perl,python,c,cpp,java,ocaml,cuda inoremap >= <space>>=<space>
+autocmd FileType perl,python,c,cpp,java,ocaml,cuda inoremap << <space><<<space>
+autocmd FileType perl,python,c,cpp,java,ocaml,cuda inoremap >> <space>>><space>
 autocmd FileType python inoremap ** <space>**<space>
 
 " For LaTeX
@@ -143,8 +143,8 @@ set ofu=syntaxcomplete#Complete
 autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
 autocmd FileType java set omnifunc=javacomplete#Complete
 autocmd FileType python set omnifunc=pythoncomplete#Complete
-autocmd FileType c,cpp,cuda set omnifunc=syntaxcomplete#Complete
 autocmd FileType javascript set omnifunc=javascriptcomplete#Complete
+autocmd FileType c,cpp,perl,cuda set omnifunc=syntaxcomplete#Complete
 
 set foldmethod=indent
 set nofoldenable
@@ -218,11 +218,12 @@ let g:signify_vcs_list = ['git', 'svn']
 
 " For auto-pairs
 let g:AutoPairs={'(':')', '[':']', '{':'}', '"':'"', "'":"'"}
-au FileType tex let b:AutoPairs={'(':')', '[':']', '{':'}', '"':'"', "'":"'", '\[':'\]', '\(':'\)'}
+au FileType c,cpp,perl let b:AutoPairs={'(':')', '[':']', '{':'}', '"':'"', "'":"'"}
 au FileType ocaml let b:AutoPairs={'(':')', '[':']', '{':'}', '"':'"', "'":"'", '(*':'*)'}
+au FileType cuda let b:AutoPairs={'(':')', '[':']', '{':'}', '"':'"', "'":"'", '<<<':'>>>'}
+au FileType tex let b:AutoPairs={'(':')', '[':']', '{':'}', '"':'"', "'":"'", '\[':'\]', '\(':'\)'}
 au FileType python let b:AutoPairs={'(':')', '[':']', '{':'}', '"':'"', "'":"'", '"""':'"""', "'''":"'''"}
 au FileType jinja.html let b:AutoPairs={'(':')', '[':']', '{':'}', '"':'"', "'":"'", '{{':'}}', '{%':'%}'}
-au FileType cuda let b:AutoPairs={'(':')', '[':']', '{':'}', '"':'"', "'":"'", '<<<':'>>>'}
 
 " For vim-indent-guides
 let g:indent_guides_enable_on_vim_startup=0
@@ -235,7 +236,10 @@ let g:ConqueTerm_TERM='xterm'
 " LaTeX-Suite options
 "let g:Tex_HotKeyMappings='align*,proof,bmatrix'
 let g:Imap_UsePlaceHolders=0
-let g:Tex_PromptedEnvironments='enumerate,itemize,center,proof,align*,split,tabular,bmatrix,pmatrix,vmatrix,array'
+let g:Tex_PromptedEnvironments='enumerate,itemize,center,proof,align*,split,tabular,figure,bmatrix,pmatrix,vmatrix,array'
 let g:Tex_DefaultTargetFormat='pdf'
 let g:Tex_CompileRule_pdf='pdflatex $*'
 let g:Tex_GotoError=0
+
+" YouCompleteMe
+set completeopt-=preview
