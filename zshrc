@@ -144,6 +144,7 @@ fi
 # oh-my-zsh
 ZSH=/usr/share/oh-my-zsh/
 ZSH_THEME="luke"
+DEFAULT_USER="luke"
 DISABLE_AUTO_UPDATE="true"
 plugins=(git history jsontools sudo svn systemd tmux)
 source $ZSH/oh-my-zsh.sh
