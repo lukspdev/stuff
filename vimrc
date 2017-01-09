@@ -115,6 +115,8 @@ autocmd FileType perl,python,c,cpp,java,ocaml,cuda inoremap <= <space><=<space>
 autocmd FileType perl,python,c,cpp,java,ocaml,cuda inoremap >= <space>>=<space>
 autocmd FileType perl,python,c,cpp,java,ocaml,cuda inoremap << <space><<<space>
 autocmd FileType perl,python,c,cpp,java,ocaml,cuda inoremap >> <space>>><space>
+autocmd FileType perl inoremap => <space>=><space>
+autocmd FileType perl inoremap =~ <space>=~<space>
 autocmd FileType python inoremap ** <space>**<space>
 
 " For LaTeX
@@ -123,11 +125,11 @@ autocmd FileType tex setlocal spell spelllang=en_us
 
 " 80 column layout:
 if exists('+colorcolumn')
-    autocmd FileType python,c,cpp,java,javascript,ocaml,cuda let &colorcolumn=join(range(81,999),",")
-    autocmd FileType python,c,cpp,java,javascript,ocaml,cuda highlight ColorColumn ctermbg=235
+    autocmd FileType perl,python,c,cpp,java,javascript,ocaml,cuda let &colorcolumn=join(range(81,999),",")
+    autocmd FileType perl,python,c,cpp,java,javascript,ocaml,cuda highlight ColorColumn ctermbg=235
 else
-    autocmd FileType python,c,cpp,java,javascript,ocaml,cuda highlight OverLength ctermbg=235 ctermfg=white
-    autocmd FileType python,c,cpp,java,javascript,ocaml,cuda match OverLength /\%81v.\+/
+    autocmd FileType perl,python,c,cpp,java,javascript,ocaml,cuda highlight OverLength ctermbg=235 ctermfg=white
+    autocmd FileType perl,python,c,cpp,java,javascript,ocaml,cuda match OverLength /\%81v.\+/
 endif
 
 " Learn Vimscript the hard way
