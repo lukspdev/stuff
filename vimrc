@@ -167,6 +167,9 @@ nnoremap <F4> :w<CR>:make %<CR>
 inoremap <F6> <Esc>:w<CR>:!time ./%<CR>
 nnoremap <F6> :w<CR>:!time ./%<CR>
 
+" toggle set paste
+set pastetoggle=<F3>
+
 " For NERDTree
 "autocmd VimEnter * NERDTree
 let NERDTreeChristmasTree=1
