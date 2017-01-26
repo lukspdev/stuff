@@ -80,16 +80,7 @@ alias rename='perl-rename'
 # ssh gone wild
 alias rpi='ssh luke@rpi'
 alias rpj='ssh luke@rpj'
-alias grd0='ssh localadmin@grd0'
-alias grd1='ssh localadmin@grd1'
-alias grd2='ssh localadmin@grd2'
-alias grd3='ssh localadmin@grd3'
-alias grd4='ssh localadmin@grd4'
-alias grd5='ssh localadmin@grd5'
-alias grd6='ssh localadmin@grd6'
-alias grd7='ssh localadmin@grd7'
-alias grd8='ssh localadmin@grd8'
-alias grd9='ssh localadmin@grd9'
+alias cs241='ssh jianliu4@cs241'
 
 alias tar='bsdtar'
 
