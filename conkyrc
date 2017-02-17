@@ -51,7 +51,7 @@ ${voffset -5}${font sans-serif:bold:size=10}SYSTEM${font} ${hr 1}${voffset 5}
 Kernel ${alignr}${kernel}
 Uptime  ${uptime}${alignr}Load  ${loadavg}
 CPU temp ${alignr}${hwmon temp 0}${hwmon temp 1}${hwmon temp 2}°C
-/dev/sdb temp ${alignr}${execi 60 nc localhost 7634 | cut -c 29-30}°C
+/dev/sdb temp ${alignr}${execi 60 /home/luke/scripts/hddtemp.sh}°C
 
 # CPU and mem info
 #${alignc}${font sans-serif:bold:size=10}CPUs && MEMORY${font}
