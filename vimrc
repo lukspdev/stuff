@@ -66,6 +66,7 @@ set rnu
 " Highlight search
 set nohlsearch
 " Ignore case unless case-sensitive
+set ignorecase
 set smartcase
 " Search while entering
 set incsearch
@@ -91,14 +92,11 @@ set encoding=utf-8
 set t_Co=256
 
 "Smart way to move between windows
-map <C-j> <C-W>j
-map <C-k> <C-W>k
-map <C-h> <C-W>h
-map <C-l> <C-W>l
-
-" Speed up scrolling of the viewport slightly
-nnoremap <C-e> 3<C-e>
-nnoremap <C-y> 3<C-y>
+map <C-space> <Plug>IMAP_JumpForward
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-h> <C-w>h
+nnoremap <C-l> <C-w>l
 
 " For Makefiles
 autocmd FileType make setlocal noexpandtab
@@ -248,3 +246,4 @@ let g:Tex_GotoError=0
 
 " YouCompleteMe
 set completeopt-=preview
+let g:ycm_server_python_interpreter='/usr/bin/python2'
