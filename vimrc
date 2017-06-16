@@ -246,4 +246,3 @@ let g:Tex_GotoError=0
 
 " YouCompleteMe
 set completeopt-=preview
-let g:ycm_server_python_interpreter='/usr/bin/python2'
