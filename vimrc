@@ -100,7 +100,6 @@ nnoremap <C-l> <C-w>l
 
 " For Makefiles
 autocmd FileType make setlocal noexpandtab
-
 autocmd FileType perl,python,c,cpp,java,ocaml,cuda inoremap = <space>=<space>
 autocmd FileType perl,python,c,cpp,java,ocaml,cuda inoremap == <space>==<space>
 autocmd FileType perl,python,c,cpp,java,ocaml,cuda inoremap != <space>!=<space>
@@ -113,6 +112,7 @@ autocmd FileType perl,python,c,cpp,java,ocaml,cuda inoremap <= <space><=<space>
 autocmd FileType perl,python,c,cpp,java,ocaml,cuda inoremap >= <space>>=<space>
 autocmd FileType perl,python,c,cpp,java,ocaml,cuda inoremap << <space><<<space>
 autocmd FileType perl,python,c,cpp,java,ocaml,cuda inoremap >> <space>>><space>
+autocmd FileType make inoremap = =
 autocmd FileType perl inoremap => <space>=><space>
 autocmd FileType perl inoremap =~ <space>=~<space>
 autocmd FileType python inoremap ** <space>**<space>
