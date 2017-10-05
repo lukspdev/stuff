@@ -51,17 +51,24 @@ set hidden
 set noswapfile
 
 " Show current line and column
-au BufEnter * setlocal cursorline
-au BufLeave * setlocal nocursorline
-"au BufEnter * setlocal cursorcolumn
-"au BufLeave * setlocal nocursorcolumn
+augroup cursorline
+    au!
+    au BufEnter,FocusGained,InsertLeave * setlocal cursorline
+    au BufLeave,FocusLost,InsertEnter * setlocal nocursorline
+    "au BufEnter,FocusGained,InsertLeave * setlocal cursorcolumn
+    "au BufLeave,FocusLost,InsertEnter * setlocal nocursorcolumn
+augroup END
 
 " Use mouse
 set mouse=a
 
 " Line number
-set nu
-set rnu
+set nu rnu
+augroup rnu
+    au!
+    au BufEnter,FocusGained,InsertLeave * setlocal rnu
+    au BufLeave,FocusLost,InsertEnter * setlocal nornu
+augroup END
 
 " Highlight search
 set nohlsearch
@@ -82,9 +89,12 @@ set smarttab
 " Convert tab to space
 set et
 set sm
-autocmd FileType html,tex set ts=2
-autocmd FileType html,tex set shiftwidth=2
-autocmd FileType html,tex set softtabstop=2
+augroup indentation
+    au!
+    au FileType html,tex set ts=2
+    au FileType html,tex set shiftwidth=2
+    au FileType html,tex set softtabstop=2
+augroup END
 
 set encoding=utf-8
 
@@ -100,26 +110,33 @@ nnoremap <C-l> <C-w>l
 
 " For Makefiles
 autocmd FileType make setlocal noexpandtab
-autocmd FileType perl,python,c,cpp,java,ocaml,cuda inoremap = <space>=<space>
-autocmd FileType perl,python,c,cpp,java,ocaml,cuda inoremap == <space>==<space>
-autocmd FileType perl,python,c,cpp,java,ocaml,cuda inoremap != <space>!=<space>
-autocmd FileType perl,python,c,cpp,java,ocaml,cuda inoremap += <space>+=<space>
-autocmd FileType perl,python,c,cpp,java,ocaml,cuda inoremap -= <space>-=<space>
-autocmd FileType perl,python,c,cpp,java,ocaml,cuda inoremap *= <space>*=<space>
-autocmd FileType perl,python,c,cpp,java,ocaml,cuda inoremap /= <space>/=<space>
-autocmd FileType perl,python,c,cpp,java,ocaml,cuda inoremap &= <space>&=<space>
-autocmd FileType perl,python,c,cpp,java,ocaml,cuda inoremap <= <space><=<space>
-autocmd FileType perl,python,c,cpp,java,ocaml,cuda inoremap >= <space>>=<space>
-autocmd FileType perl,python,c,cpp,java,ocaml,cuda inoremap << <space><<<space>
-autocmd FileType perl,python,c,cpp,java,ocaml,cuda inoremap >> <space>>><space>
-autocmd FileType make inoremap = =
-autocmd FileType perl inoremap => <space>=><space>
-autocmd FileType perl inoremap =~ <space>=~<space>
-autocmd FileType python inoremap ** <space>**<space>
+
+augroup spaces
+    au!
+    autocmd FileType perl,python,c,cpp,java,ocaml,cuda inoremap = <space>=<space>
+    autocmd FileType perl,python,c,cpp,java,ocaml,cuda inoremap == <space>==<space>
+    autocmd FileType perl,python,c,cpp,java,ocaml,cuda inoremap != <space>!=<space>
+    autocmd FileType perl,python,c,cpp,java,ocaml,cuda inoremap += <space>+=<space>
+    autocmd FileType perl,python,c,cpp,java,ocaml,cuda inoremap -= <space>-=<space>
+    autocmd FileType perl,python,c,cpp,java,ocaml,cuda inoremap *= <space>*=<space>
+    autocmd FileType perl,python,c,cpp,java,ocaml,cuda inoremap /= <space>/=<space>
+    autocmd FileType perl,python,c,cpp,java,ocaml,cuda inoremap &= <space>&=<space>
+    autocmd FileType perl,python,c,cpp,java,ocaml,cuda inoremap <= <space><=<space>
+    autocmd FileType perl,python,c,cpp,java,ocaml,cuda inoremap >= <space>>=<space>
+    autocmd FileType perl,python,c,cpp,java,ocaml,cuda inoremap << <space><<<space>
+    autocmd FileType perl,python,c,cpp,java,ocaml,cuda inoremap >> <space>>><space>
+    autocmd FileType make inoremap = =
+    autocmd FileType perl inoremap => <space>=><space>
+    autocmd FileType perl inoremap =~ <space>=~<space>
+    autocmd FileType python inoremap ** <space>**<space>
+augroup END
 
 " For LaTeX
-autocmd FileType tex set spell
-autocmd FileType tex setlocal spell spelllang=en_us
+augroup latex
+    au!
+    au FileType tex set spell
+    au FileType tex setlocal spell spelllang=en_us
+augroup END
 
 " 80 column layout:
 if exists('+colorcolumn')
@@ -140,11 +157,14 @@ se tags=/usr/include/tags
 
 filetype plugin on
 set ofu=syntaxcomplete#Complete
-autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
-autocmd FileType java set omnifunc=javacomplete#Complete
-autocmd FileType python set omnifunc=pythoncomplete#Complete
-autocmd FileType javascript set omnifunc=javascriptcomplete#Complete
-autocmd FileType c,cpp,perl,cuda set omnifunc=syntaxcomplete#Complete
+augroup complete
+    au!
+    au FileType html set omnifunc=htmlcomplete#CompleteTags
+    au FileType java set omnifunc=javacomplete#Complete
+    au FileType python set omnifunc=pythoncomplete#Complete
+    au FileType javascript set omnifunc=javascriptcomplete#Complete
+    au FileType c,cpp,perl,cuda set omnifunc=syntaxcomplete#Complete
+augroup END
 
 set foldmethod=indent
 set nofoldenable
@@ -200,10 +220,13 @@ let g:rbpt_colorpairs = [
     \ ]
 let g:rbpt_max = 16
 let g:rbpt_loadcmd_toggle = 0
-au VimEnter * RainbowParenthesesToggle
-au Syntax * RainbowParenthesesLoadRound
-au Syntax * RainbowParenthesesLoadSquare
-au Syntax * RainbowParenthesesLoadBraces
+augroup rainbow
+    au!
+    au VimEnter * RainbowParenthesesToggle
+    au Syntax * RainbowParenthesesLoadRound
+    au Syntax * RainbowParenthesesLoadSquare
+    au Syntax * RainbowParenthesesLoadBraces
+augroup END
 
 " For vim-LaTeX
 let g:tex_flavor='latex'
@@ -221,12 +244,15 @@ let g:signify_vcs_list = ['git', 'svn']
 
 " For auto-pairs
 let g:AutoPairs={'(':')', '[':']', '{':'}', '"':'"', "'":"'"}
-au FileType c,cpp,perl let b:AutoPairs={'(':')', '[':']', '{':'}', '"':'"', "'":"'"}
-au FileType ocaml let b:AutoPairs={'(':')', '[':']', '{':'}', '"':'"', "'":"'", '(*':'*)'}
-au FileType cuda let b:AutoPairs={'(':')', '[':']', '{':'}', '"':'"', "'":"'", '<<<':'>>>'}
-au FileType tex let b:AutoPairs={'(':')', '[':']', '{':'}', '"':'"', "'":"'", '\[':'\]', '\(':'\)'}
-au FileType python let b:AutoPairs={'(':')', '[':']', '{':'}', '"':'"', "'":"'", '"""':'"""', "'''":"'''"}
-au FileType jinja.html let b:AutoPairs={'(':')', '[':']', '{':'}', '"':'"', "'":"'", '{{':'}}', '{%':'%}'}
+augroup autopairs
+    au!
+    au FileType c,cpp,perl let b:AutoPairs={'(':')', '[':']', '{':'}', '"':'"', "'":"'"}
+    au FileType ocaml let b:AutoPairs={'(':')', '[':']', '{':'}', '"':'"', "'":"'", '(*':'*)'}
+    au FileType cuda let b:AutoPairs={'(':')', '[':']', '{':'}', '"':'"', "'":"'", '<<<':'>>>'}
+    au FileType tex let b:AutoPairs={'(':')', '[':']', '{':'}', '"':'"', "'":"'", '\[':'\]', '\(':'\)'}
+    au FileType python let b:AutoPairs={'(':')', '[':']', '{':'}', '"':'"', "'":"'", '"""':'"""', "'''":"'''"}
+    au FileType jinja.html let b:AutoPairs={'(':')', '[':']', '{':'}', '"':'"', "'":"'", '{{':'}}', '{%':'%}'}
+augroup END
 
 " For vim-indent-guides
 let g:indent_guides_enable_on_vim_startup=0
@@ -246,3 +272,4 @@ let g:Tex_GotoError=0
 
 " YouCompleteMe
 set completeopt-=preview
+let g:ycm_server_python_interpreter = '/usr/bin/python2'
