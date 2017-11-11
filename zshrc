@@ -111,8 +111,6 @@ export SVN_EDITOR=nano
 export PKG_CONFIG_PATH=/usr/lib/pkgconfig:/usr/share/pkgconfig:/usr/local/lib/pkgconfig:/opt/android-ndk
 export PATH=/usr/lib/ccache/bin/:/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/bin/vendor_perl:/usr/bin/core_perl:/home/luke/scripts:/opt/cuda/bin
 
-export CCACHE_DIR=/media/ccache
-
 # For less
 alias less='less -N'
 export LESS=-R
