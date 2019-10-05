@@ -1,0 +1,16 @@
+*** note, with svn 1.7, user can do this ***
+
+step 1: create combined repo
+
+step 2: dump each repo into files
+before svn 1.7: svnadmin dump $REPO > $DUMP_FILE
+$ svnadmin dump repo1 > repo1.dump
+with svn 1.7: svnrdump dump $URL > $DUMP_FILE
+$ svnrdump dump svn://localhost/repo1 > repo1.dump
+
+step 3: create&commit directories for each repo in the combined repo
+
+step 4: load each file into combined repo
+before svn 1.7: svnadmin load --parent-dir $SUB_REPO_DIR -F $DUMP_FILE $COMBINED_REPO_DIR
+$ svnadmin load --parent-dir repo2 -F ../repo2.dump .
+with svn 1.7: too complicated
