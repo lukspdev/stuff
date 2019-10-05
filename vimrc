@@ -140,11 +140,11 @@ augroup END
 
 " 80 column layout:
 if exists('+colorcolumn')
-    autocmd FileType perl,python,c,cpp,java,javascript,ocaml,cuda let &colorcolumn=join(range(81,999),",")
+    autocmd FileType perl,python,c,cpp,java,javascript,ocaml,cuda let &colorcolumn=join(range(121,999),",")
     autocmd FileType perl,python,c,cpp,java,javascript,ocaml,cuda highlight ColorColumn ctermbg=235
 else
     autocmd FileType perl,python,c,cpp,java,javascript,ocaml,cuda highlight OverLength ctermbg=235 ctermfg=white
-    autocmd FileType perl,python,c,cpp,java,javascript,ocaml,cuda match OverLength /\%81v.\+/
+    autocmd FileType perl,python,c,cpp,java,javascript,ocaml,cuda match OverLength /\%121v.\+/
 endif
 
 " Learn Vimscript the hard way
@@ -178,7 +178,7 @@ set undofile
 set undodir=/home/luke/.vimundo/
 
 " Save and make
-inoremap <F4> <Esc>:w<CR>:make %<CR>
+inoremap <F4> <Esc>:w<CR>:make<CR>
 nnoremap <F4> :w<CR>:make %<CR>
 
 " Save and execute python script:
@@ -257,7 +257,7 @@ augroup END
 " For vim-indent-guides
 let g:indent_guides_enable_on_vim_startup=0
 let g:indent_guides_start_level=2
-let g:indent_guides_guide_size=1
+let g:indent_guides_guide_size=4
 
 " ConqueTerm options
 let g:ConqueTerm_TERM='xterm'
