@@ -78,9 +78,7 @@ alias qs='python -m http.server'
 alias rename='perl-rename'
 
 # ssh gone wild
-alias rpi='ssh luke@rpi'
-alias rpj='ssh luke@rpj'
-alias cs241='ssh jianliu4@cs241'
+alias rpi='ssh luke@rpi.luke.home'
 
 alias tar='bsdtar'
 
@@ -148,3 +146,6 @@ alias lz='ll -rS'                   # sort by size
 alias lt='ll -rt'                   # sort by date
 
 export TIMEFMT=$'\nreal\t%E\nuser\t%U\nsys\t%S'
+
+# mpv use headphone
+alias mpvh='mpv --audio-device=pulse/alsa_output.pci-0000_1e_00.3.analog-stereo'
